@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { Text } from "react-native";
 import MealDetailsScreen from "./screens/MealDetailScreen";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
@@ -41,6 +41,11 @@ export default function App() {
           <Stack.Screen 
           name="MealDetails"  
           component={MealDetailsScreen}
+          options={{
+            headerRight: () => {
+              return <Button title='Tap me!' />
+            }
+          }}
           />
         </Stack.Navigator>
       </NavigationContainer>
