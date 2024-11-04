@@ -1,10 +1,11 @@
-import { Text, Image, View, StyleSheet, ScrollView, Button } from "react-native";
+import { Text, Image, View, StyleSheet, ScrollView } from "react-native";
 import { useLayoutEffect } from "react";
 
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
+import IconButton from "../components/IconButton";
 
 export default function MealDetailsScreen({ route, navigation }) {
   const id = route.params.id;
@@ -18,10 +19,10 @@ export default function MealDetailsScreen({ route, navigation }) {
     navigation.setOptions({
       title: meal.title,
       headerRight: () => {
-        return <Button title='Tap me!' onPress={headerButtonPressFunction} />
+        return <IconButton icon='star' color='white' onPress={headerButtonPressFunction} />
       }
     });
-  }, [navigation, meal, headerButtonPressFunction]);
+  }, [navigation, meal]);
 
   return (
     <ScrollView style={styles.rootContainer}>
