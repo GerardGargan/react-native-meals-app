@@ -25,6 +25,7 @@ export default function MealsOverviewScreen({ route, navigation }) {
       duration={itemData.item.duration}
       complexity={itemData.item.complexity}
       affordability={itemData.item.affordability}
+      id={itemData.item.id}
       />
     );
   }
