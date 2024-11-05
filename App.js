@@ -9,13 +9,16 @@ import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import FavoritesScreen from "./screens/FavoritesScreen";
 import { Ionicons } from "@expo/vector-icons";
+import FavoritesContextProvider from "./store/context/favorites-context";
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   function DrawerNavigator() {
     return (
+
       <Drawer.Navigator
         screenOptions={{
           headerStyle: { backgroundColor: "#351401" },
@@ -53,7 +56,8 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="light" />
+    <StatusBar style="light" />
+    <FavoritesContextProvider>
 
       <NavigationContainer>
         <Stack.Navigator
@@ -82,6 +86,7 @@ export default function App() {
           <Stack.Screen name="MealDetails" component={MealDetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
+    </FavoritesContextProvider>
     </>
   );
 }
